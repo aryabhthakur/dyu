@@ -2,9 +2,9 @@ import Airtable from "airtable";
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
-import { getStringValue } from "../jobs/route";
 import ThankYouEmail from "@/components/emails/thank-you";
 import ContactFormNotification from "@/components/emails/contact-notification";
+import { getStringValue } from "@/lib/utils";
 
 const base = new Airtable({
   apiKey: process.env.AIRTABLE_API_KEY,

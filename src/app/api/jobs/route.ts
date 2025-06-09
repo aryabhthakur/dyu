@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import Airtable from "airtable";
+import { getStringValue } from "@/lib/utils";
 
 // types/JobListing.ts
 export interface JobFields {
@@ -22,21 +23,6 @@ export interface JobRecord {
 const base = new Airtable({
   apiKey: process.env.AIRTABLE_API_KEY,
 }).base(process.env.AIRTABLE_BASE_ID!);
-
-export function getStringValue(value: unknown): string {
-  if (typeof value === "string") return value;
-  if (Array.isArray(value))
-    return value.map(getStringValue).join(", ");
-  if (
-    value &&
-    typeof value === "object" &&
-    "value" in value
-  )
-    return getStringValue(value.value);
-  if (value !== null && value !== null)
-    return String(value);
-  return "";
-}
 
 export async function GET(request: NextRequest) {
   try {

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import Airtable from "airtable";
-import { getStringValue } from "../route";
+import { getStringValue } from "@/lib/utils";
 const base = new Airtable({
   apiKey: process.env.AIRTABLE_API_KEY,
 }).base(process.env.AIRTABLE_BASE_ID!);

@@ -4,8 +4,8 @@ import { Resend } from "resend";
 import { z } from "zod";
 import Airtable, { type Attachment } from "airtable";
 import HRJobApplicationNotification from "@/components/emails/hr-notification";
-import { getStringValue } from "../../route";
 import JobApplicationThankYou from "@/components/emails/job-thank-you";
+import { getStringValue } from "@/lib/utils";
 
 // Initialize Resend
 const resend = new Resend(process.env.RESEND_API_KEY);

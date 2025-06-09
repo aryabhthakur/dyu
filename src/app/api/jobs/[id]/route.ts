@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Airtable from "airtable";
-import { getStringValue, JobRecord } from "../route";
+import { JobRecord } from "../route";
+import { getStringValue } from "@/lib/utils";
 
 const base = new Airtable({
   apiKey: process.env.AIRTABLE_API_KEY,
@@ -8,9 +9,9 @@ const base = new Airtable({
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const jobId = params.id;
+  const { id: jobId } = await params;
 
   try {
     // Fetch single record by ID

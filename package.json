@@ -38,7 +38,6 @@
     "@radix-ui/react-tooltip": "^1.2.4",
     "@react-email/components": "^0.0.41",
     "@vercel/blob": "^1.1.1",
-    "@vis.gl/react-google-maps": "^1.5.3",
     "airtable": "^0.12.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
